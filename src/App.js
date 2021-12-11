@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs'
+import Music from "./components/Music/Music";
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 const App = (props) => {
@@ -16,7 +17,7 @@ const App = (props) => {
                     <Routes>
                         <Route path="/profile" element={<Profile/>}/>
                         <Route path="/dialogs" element={<Dialogs/>}/>
-                        {/*<Route path="/profile" element={<Profile/>}/>*/}
+                        <Route path="/music" element={<Music/>}/>
                         {/*<Route path="/dialogs" element={<Dialogs/>}/>*/}
                     </Routes>
                 </div>
