@@ -1,28 +1,28 @@
 import React from 'react';
 import s from './Dialogs.module.css'
-
+import {NavLink} from "react-router-dom"
 
 const Dialogs = (props) => {
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
                 <div className={s.dialog + " " + s.active}>
-                    Oleg
+                    <NavLink to='/dialogs/1'> Oleg </NavLink>
+                </div>
+                <div  className={s.dialog}>
+                    <NavLink to='/dialogs/1'> German </NavLink>
                 </div>
                 <div className={s.dialog}>
-                    German
+                    <NavLink to='/dialogs/1'> Alexandr </NavLink>
                 </div>
                 <div className={s.dialog}>
-                    Alexandr
+                    <NavLink to='/dialogs/1'> Dima </NavLink>
                 </div>
                 <div className={s.dialog}>
-                    Dmitriy
+                    <NavLink to='/dialogs/1'> Olga </NavLink>
                 </div>
                 <div className={s.dialog}>
-                    Kostya
-                </div>
-                <div className={s.dialog}>
-                    Valera
+                    <NavLink to='/dialogs/1'> Sveta </NavLink>
                 </div>
             </div>
             <div className={s.masseges}>
