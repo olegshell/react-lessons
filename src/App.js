@@ -8,7 +8,7 @@ import Dialogs from './components/Dialogs/Dialogs'
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
-
+import NameProps from "./components/Props/NameProps";
 
 
 const App = (props) => {

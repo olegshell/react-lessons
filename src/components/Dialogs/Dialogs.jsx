@@ -23,15 +23,32 @@ const Massege = (props) => {
 }
 
 const Dialogs = (props) => {
+
+    let diaglosData = [
+        {id: 0, name: "Oleg"},
+        {id: 1, name: "German"},
+        {id: 2, name: "Alexandr"},
+        {id: 3, name: "Dima"},
+        {id: 4, name: "Olga"},
+        {id: 5, name: "Sveta"},
+    ]
+
+    let messageData = [
+        {id:0, message: "Hi"},
+        {id:1, message: "How are you?"},
+        {id:2, message: "Yo"}
+    ]
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                <DialogItem name="Oleg" id="1"/>
-                <DialogItem name="German" id="2"/>
-                <DialogItem name="Alexandr" id="3"/>
-                <DialogItem name="Dima" id="4"/>
-                <DialogItem name="Olga" id="5"/>
-                <DialogItem name="Sveta" id="6"/>
+                <DialogItem name={diaglosData[0].name} id={diaglosData[0].id}/>
+                <DialogItem name ={diaglosData[1].name} id={diaglosData[1].id}/>
+                {/*<DialogItem name="German" id="2"/>*/}
+                {/*<DialogItem name="Alexandr" id="3"/>*/}
+                {/*<DialogItem name="Dima" id="4"/>*/}
+                {/*<DialogItem name="Olga" id="5"/>*/}
+                {/*<DialogItem name="Sveta" id="6"/>*/}
                 {/*<div className={s.dialog + " " + s.active}>*/}
                 {/*    <NavLink to='/dialogs/1'> Oleg </NavLink>*/}
                 {/*</div>*/}
@@ -52,9 +69,9 @@ const Dialogs = (props) => {
                 {/*</div>*/}
             </div>
             <div className={s.masseges}>
-                <Massege message="Hi"/>
-                <Massege message="How are your?"/>
-                <Massege message="Yo"/>
+                <Massege message={messageData[0].message }/>
+                <Massege message={messageData[1].message}/>
+                <Massege message={messageData[2].message}/>
             </div>
 
 
