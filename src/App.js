@@ -15,6 +15,7 @@ const App = (props) => {
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
+                {/*<NameProps name={'Oleg'} age={35}/>*/}
                 <Header/>
                 <Navbar/>
                 <div className='app-wrapper-content'>

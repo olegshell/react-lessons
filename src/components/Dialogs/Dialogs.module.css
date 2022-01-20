@@ -4,7 +4,7 @@
 }
 
 .dialogsItems {
-    padding: 10px;
+    color: white;
 
 }
 
@@ -25,3 +25,9 @@
     padding: 10px;
 
 }
+
+.masseges.massege {
+   color: white;
+
+}
+
