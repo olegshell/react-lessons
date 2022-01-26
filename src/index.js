@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import state from "./Redux/state";
 
 let postsIndexJs = [
     {id: 0, message: "Hi, how are you", likesCount: 15},
@@ -25,11 +26,12 @@ let messages = [
     {id:0, message: "Hi"},
     {id:1, message: "How are you?"},
     {id:2, message: "YoYoYo"},
+    {id:2, message: "YoYoYo"},
 ]
 
 ReactDOM.render(
     <React.StrictMode>
-        <App postsApp={postsIndexJs} dialogs={dialogs} messages={messages} />
+        <App  state={state}  />
     </React.StrictMode>,
     document.getElementById('root')
 );

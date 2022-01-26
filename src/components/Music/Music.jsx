@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './Music.module.css'
+import NameProps from "../Props/NameProps";
 
 
 const Music = (props) => {

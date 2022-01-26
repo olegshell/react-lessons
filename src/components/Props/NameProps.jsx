@@ -5,7 +5,7 @@ import s from './Props.module.css'
 const NameProps = (props) => {
     return (
         <div className={s.text}>
-            <div>{props.name} {props.age}</div>
+            <div>{props.nameOfGrop} - {props.nameofTrack} </div>
             <div>Пример пропсов!!!</div>
         </div>
     )
