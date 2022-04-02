@@ -9,13 +9,11 @@ let state = {
             {id: 4, message: "Yo", likesCount: 22},
         ],
 
-
-
     },
 
     dialogsPage : {
         messages: [
-            {id:0, message: "Hi"},
+            {id:0, message: "Hi its"},
             {id:1, message: "How are you?"},
             {id:2, message: "YoYoYo"},
             {id:2, message: "YoYoYo"},
@@ -30,6 +28,25 @@ let state = {
             {id: 5, name: "Sveta"},
         ],
     },
+
+    music: [
+        {group: 'Metallica',  track: 'Enter sandman'},
+        {group: 'Splin',      track: 'Privet'},
+        {group: 'Kino',       track: 'Peremen'},
+        {group: 'Korn',       track: 'Enter sandman'},
+        {group: 'Pink Floyd', track: 'Enter sandman'},
+        {group: 'DDT',        track: 'Russian Spring'},
+        {group: 'kirpichi',   track: 'new'},
+    ],
+
+    myFriends: [
+        {firstName: 'German', lastName: 'Grek', age: 34},
+        {firstName: 'Anatoly', lastName: 'Vasserman', age: 35},
+        {firstName: 'Mara', lastName: 'Vasserma', age: 34},
+        {firstName: 'Vasy', lastName: 'Mikheev', age: 30},
+        {firstName: 'Vovan', lastName: 'none',  age: 30},
+        {firstName: 'Alina', lastName: 'Artist', age: 29},
+    ]
 }
 
 export default state

@@ -9,8 +9,7 @@ import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import NameProps from "./components/Props/NameProps";
-
-
+import Friends from "./components/Friends/Friends";
 
 
 const App = (props) => {
@@ -22,11 +21,10 @@ const App = (props) => {
                 <Navbar/>
                 <div className='app-wrapper-content'>
                     <Routes>
-                        <Route path="/dialogs/*" element={<Dialogs
-                            state={props.state.dialogsPage}/>}/>
-                        <Route path="/profile" element={<Profile
-                            state={props.state.profilePage} />}/>
-                        <Route path="/music" element={<Music />}/>
+                        <Route path="/friends" element={<Friends myFriends={props.appState.myFriends}/>}/>
+                        <Route path="/dialogs/*" element={<Dialogs dialogsData={props.appState.dialogsPage}/>}/>
+                        <Route path="/profile" element={<Profile myPostsData={props.appState.profilePage} />}/>
+                        <Route path="/music" element={<Music musicData={props.appState.music}/>}/>
                         <Route path="/news" element={<News/>}/>
                         <Route path="/settings" element={<Settings/>}/>
                     </Routes>

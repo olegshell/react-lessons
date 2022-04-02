@@ -1,13 +1,19 @@
-/*.header {*/
-/*    grid-area: h;*/
-/*    background-color: green;*/
-/*}*/
+.musicItems {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
 
-/*.header img {*/
-/*    width: 20px;*/
-/*}*/
+.group {
+    color: blanchedalmond;
+}
 
-/*.item.active {*/
-/*    color: gold;*/
-/*}*/
+.track {
+    color: white;
+
+}
+
+
+
+
+
 

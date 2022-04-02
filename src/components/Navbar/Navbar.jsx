@@ -8,6 +8,9 @@ const Navbar = () => {
             <NavLink to='/profile' className = { navData => navData.isActive ? s.active : s.item }>Profile</NavLink>
         </div>
         <div className={`${s.item} ${s.active}`}>
+            <NavLink to='/friends' className = { navData => navData.isActive ? s.active : s.item }>My friends</NavLink>
+        </div>
+        <div className={`${s.item} ${s.active}`}>
             <NavLink to='/dialogs/' className = { navData => navData.isActive ? s.active : s.item }>Messages</NavLink>
         </div>
         <div className={`${s.item} ${s.active}`}>
@@ -19,6 +22,7 @@ const Navbar = () => {
         <div className={`${s.item} ${s.active}`}>
             <NavLink to='/settings' className = { navData => navData.isActive ? s.active : s.item }>Settings</NavLink>
         </div>
+
     </nav>
 }
 
