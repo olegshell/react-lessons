@@ -14,7 +14,7 @@ import Friends from "./components/Friends/Friends";
 
 const App = (props) => {
     return (
-        <BrowserRouter>
+
             <div className='app-wrapper'>
                 {/*<NameProps name={massive.name} age={massive.age}/>*/}
                 <Header/>
@@ -23,14 +23,14 @@ const App = (props) => {
                     <Routes>
                         <Route path="/friends" element={<Friends myFriends={props.appState.myFriends}/>}/>
                         <Route path="/dialogs/*" element={<Dialogs dialogsData={props.appState.dialogsPage}/>}/>
-                        <Route path="/profile" element={<Profile myPostsData={props.appState.profilePage} />}/>
+                        <Route path="/profile" element={<Profile myPostsData={props.appState.profilePage} addPost={props.addPost} />}/>
                         <Route path="/music" element={<Music musicData={props.appState.music}/>}/>
                         <Route path="/news" element={<News/>}/>
                         <Route path="/settings" element={<Settings/>}/>
                     </Routes>
                 </div>
             </div>
-        </BrowserRouter>
+
 
     )
 
