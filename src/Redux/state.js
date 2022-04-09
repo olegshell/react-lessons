@@ -1,4 +1,6 @@
-import {rerenderEntireThree} from "../render";
+let rerenderEntireThree = () => {
+
+}
 
 let state = {
 
@@ -91,6 +93,10 @@ export let addMessage = () => {
 export let updateNewMessage = (newMessage) => {
     state.dialogsPage.updateNewMessage = newMessage;
     rerenderEntireThree(state);
+}
+
+export const subscribe = (obserever) => {
+    rerenderEntireThree=obserever
 }
 
 export default state

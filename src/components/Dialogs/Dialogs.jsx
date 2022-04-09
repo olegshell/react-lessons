@@ -2,8 +2,8 @@ import React from 'react';
 import s from './Dialogs.module.css'
 import DialogItem from "./Dialogitem/Dialogitem";
 import Message from "./Massege/Message";
-import {rerenderEntireThree} from "../../render";
-import state, {updateNewMessage} from "../../Redux/state";
+// import {rerenderEntireThree} from "../../render";
+// import state, {updateNewMessage} from "../../Redux/state";
 
 
 
