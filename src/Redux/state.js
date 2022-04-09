@@ -1,13 +1,14 @@
+import {rerenderEntireThree} from "../render";
+
 let state = {
 
     profilePage: {
         posts: [
             {id: 0, message: "Hi, it's me! ", likesCount: 15},
             {id: 1, message: "It's my first post", likesCount: 11},
-            {id: 2, message: "Yo", likesCount: 33},
-            {id: 3, message: "Yo", likesCount: 23},
-            {id: 4, message: "Yo", likesCount: 22},
         ],
+
+        newPostText:'BLA BLA BLA',
 
     },
 
@@ -20,13 +21,15 @@ let state = {
         ],
 
         dialogs: [
-            {id: 0, name: "Oleg"},
-            {id: 1, name: "German"},
-            {id: 2, name: "Alexandr"},
-            {id: 3, name: "Dima"},
-            {id: 4, name: "Olga"},
-            {id: 5, name: "Sveta"},
+            {id: 0, name: "Oleg", age:35},
+            {id: 1, name: "German", age:34},
+            {id: 2, name: "Alexandr", age:35},
+            {id: 3, name: "Dima", age:21},
+            {id: 4, name: "Olga", age:30},
+            {id: 5, name: "Sveta", age:26},
         ],
+
+        newPostMessage:"please write here ",
     },
 
     music: [
@@ -50,19 +53,44 @@ let state = {
 
 };
 
-export let addPost = (postMessage) => {
+export let addPost = () => {
 
     let newPost = {
         id:3,
-        message: postMessage,
+        message: state.profilePage.newPostText,
         likesCount: 2,
 
     };
 
     state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText= 'Empty Line';
+    rerenderEntireThree(state);
 
 }
 
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireThree(state);
 
+}
+////////////////////////////////////////////////////
+
+export let addMessage = () => {
+
+    let newPostMassage = {
+        // Name: 'Oleg',
+        // Age: 35,
+        message: state.dialogsPage.updateNewMessage,
+    }
+
+    state.dialogsPage.messages.push(newPostMassage);
+    state.dialogsPage.newPostMessage = 'Empty Line'
+    rerenderEntireThree(state);
+}
+
+export let updateNewMessage = (newMessage) => {
+    state.dialogsPage.updateNewMessage = newMessage;
+    rerenderEntireThree(state);
+}
 
 export default state

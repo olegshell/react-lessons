@@ -8,13 +8,12 @@ import Dialogs from './components/Dialogs/Dialogs'
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
-import NameProps from "./components/Props/NameProps";
 import Friends from "./components/Friends/Friends";
+import {updateNewMessage} from "./Redux/state";
 
 
 const App = (props) => {
     return (
-
             <div className='app-wrapper'>
                 {/*<NameProps name={massive.name} age={massive.age}/>*/}
                 <Header/>
@@ -22,8 +21,14 @@ const App = (props) => {
                 <div className='app-wrapper-content'>
                     <Routes>
                         <Route path="/friends" element={<Friends myFriends={props.appState.myFriends}/>}/>
-                        <Route path="/dialogs/*" element={<Dialogs dialogsData={props.appState.dialogsPage}/>}/>
-                        <Route path="/profile" element={<Profile myPostsData={props.appState.profilePage} addPost={props.addPost} />}/>
+                        <Route path="/dialogs/*" element={<Dialogs dialogsData={props.appState.dialogsPage}
+                                                                   newPostMessage={props.appState.dialogsPage.newPostMessage}
+                                                                   addMessage={props.addMessage}
+                                                                   updateNewMessage={props.updateNewMessage}/>}/>
+                        <Route path="/profile" element={<Profile profilePage={props.appState.profilePage}
+                                                                 addPost={props.addPost}
+                                                                 updateNewPostText={props.updateNewPostText}
+                                                                 />}/>
                         <Route path="/music" element={<Music musicData={props.appState.music}/>}/>
                         <Route path="/news" element={<News/>}/>
                         <Route path="/settings" element={<Settings/>}/>
@@ -36,8 +41,6 @@ const App = (props) => {
 
 
 }
-
-
 // function App() {
 //   return (
 //     <div className="App">

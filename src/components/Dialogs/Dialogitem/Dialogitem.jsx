@@ -14,13 +14,11 @@ const DialogItem = (props) => {
         alert(text)
     };
 
-
     return (
         <div className={s.dialog + " " + s.active}>
-            <NavLink to={path}>{props.name} </NavLink>
-            {/*<NavLink to={'/dialogs/'+props.id}>{props.name} </NavLink>*/}
-            <textarea ref={newPostElement}></textarea>
-            <button onClick={addPost}>Отправить</button>
+            <NavLink to={path}>{props.name} {props.age} </NavLink>
+            {/*<button onClick={addPost} ref={newPostElement}> Отправить</button>*/}
+            {/*<div> Сообщение</div>*/}
         </div>
     )
 };

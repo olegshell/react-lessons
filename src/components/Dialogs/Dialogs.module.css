@@ -1,6 +1,8 @@
 .dialogs {
     display: grid;
-    grid-template-columns: 2fr 10fr;
+    grid-template-columns: 20fr 10fr ;
+    /*place-items: center;*/
+    /*gap: 100px;*/
 }
 
 .dialogsItems {
@@ -8,12 +10,20 @@
 
 }
 
-.dialogsItems .active {
-    color: gold
+
+.textArea {
+    width:500px;
+    height:100px;
+    margin-left: 50px;
+    margin-left: 20px;
+    margin-top: 10px;
+
 }
 
-.dialog {
-
+.buttonMessage {
+    width:100px;
+    height:20px;
+    margin-left: 20px;
 }
 
 .active {
@@ -21,13 +31,10 @@
 
 }
 
-.masseges {
-    padding: 10px;
+.messages {
+    display: grid;
+
 
 }
 
-.masseges.massege {
-   color: white;
-
-}
 
