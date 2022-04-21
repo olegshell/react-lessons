@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state from "./Redux/state";
+import store from "./Redux/state";
 import {addPost} from "./Redux/state";
 import {BrowserRouter} from "react-router-dom";
 import {updateNewPostText} from "./Redux/state";
@@ -16,14 +16,18 @@ export let rerenderEntireThree = (state) => {
     ReactDOM.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App appState={state}  updateNewPostText={updateNewPostText} addPost={addPost} addMessage={addMessage} updateNewMessage={updateNewMessage} />
+                <App appState={store.getState()}
+                     updateNewPostText={store.updateNewPostText.bind(store)}
+                     addPost={store.addPost.bind(store)}
+                     addMessage={store.addMessage.bind(store)}
+                     updateNewMessage={store.updateNewMessage.bind(store)} />
             </BrowserRouter>
         </React.StrictMode>,
         document.getElementById('root')
     );
 }
-rerenderEntireThree(state);
-subscribe(rerenderEntireThree)
+rerenderEntireThree(store.getState);
+store.subscribe(rerenderEntireThree)
 
 
 //
