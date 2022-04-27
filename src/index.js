@@ -17,8 +17,10 @@ export let rerenderEntireThree = (state) => {
         <React.StrictMode>
             <BrowserRouter>
                 <App appState={store.getState()}
-                     updateNewPostText={store.updateNewPostText.bind(store)}
-                     addPost={store.addPost.bind(store)}
+
+                     dispatch={store.dispatch.bind(store)}
+                     // updateNewPostText={store.updateNewPostText.bind(store)}
+
                      addMessage={store.addMessage.bind(store)}
                      updateNewMessage={store.updateNewMessage.bind(store)} />
             </BrowserRouter>

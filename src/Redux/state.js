@@ -1,6 +1,8 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
 
-let store ={
+let store = {
 
     _state: {
 
@@ -10,38 +12,38 @@ let store ={
                 {id: 1, message: "It's my first post", likesCount: 11},
             ],
 
-            newPostText:'BLA BLA BLA',
+            newPostText: 'BLA BLA BLA',
 
         },
 
-        dialogsPage : {
+        dialogsPage: {
             messages: [
-                {id:0, message: "Hi"},
-                {id:1, message: "How are you?"},
-                {id:2, message: "YoYoYo"},
-                {id:2, message: "YoYoYo"},
+                {id: 0, message: "Hi"},
+                {id: 1, message: "How are you?"},
+                {id: 2, message: "YoYoYo"},
+                {id: 2, message: "YoYoYo"},
             ],
 
             dialogs: [
-                {id: 0, name: "Oleg", age:35},
-                {id: 1, name: "German", age:34},
-                {id: 2, name: "Alexandr", age:35},
-                {id: 3, name: "Dima", age:21},
-                {id: 4, name: "Olga", age:30},
-                {id: 5, name: "Sveta", age:26},
+                {id: 0, name: "Oleg", age: 35},
+                {id: 1, name: "German", age: 34},
+                {id: 2, name: "Alexandr", age: 35},
+                {id: 3, name: "Dima", age: 21},
+                {id: 4, name: "Olga", age: 30},
+                {id: 5, name: "Sveta", age: 26},
             ],
 
-            newPostMessage:"please write here ",
+            newPostMessage: "please write here ",
         },
 
         music: [
-            {group: 'Metallica',  track: 'Enter sandman'},
-            {group: 'Splin',      track: 'Privet'},
-            {group: 'Kino',       track: 'Peremen'},
-            {group: 'Korn',       track: 'Enter sandman'},
+            {group: 'Metallica', track: 'Enter sandman'},
+            {group: 'Splin', track: 'Privet'},
+            {group: 'Kino', track: 'Peremen'},
+            {group: 'Korn', track: 'Enter sandman'},
             {group: 'Pink Floyd', track: 'Enter sandman'},
-            {group: 'DDT',        track: 'Russian Spring'},
-            {group: 'kirpichi',   track: 'new'},
+            {group: 'DDT', track: 'Russian Spring'},
+            {group: 'kirpichi', track: 'new'},
         ],
 
         myFriends: [
@@ -49,7 +51,7 @@ let store ={
             {firstName: 'Anatoly', lastName: 'Vasserman', age: 35},
             {firstName: 'Mara', lastName: 'Vasserma', age: 34},
             {firstName: 'Vasy', lastName: 'Mikheev', age: 30},
-            {firstName: 'Vovan', lastName: 'none',  age: 30},
+            {firstName: 'Vovan', lastName: 'none', age: 30},
             {firstName: 'Alina', lastName: 'Artist', age: 29},
         ],
 
@@ -64,29 +66,28 @@ let store ={
         return this._state
     },
 
-    addPost ()  {
 
-        let newPost = {
-            id:3,
-            message: this._state.profilePage.newPostText,
-            likesCount: 2,
+    dispatch(action) { //{type: 'ADD-POST'}
+        if (action.type === ADD_POST) {
+            let newPost = {
+                id: 3,
+                message: this._state.profilePage.newPostText,
+                likesCount: 2,
+            };
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostText = 'Empty Line';
+            this._callSubscriber(this._state);
 
-        };
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this._state);
 
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText= 'Empty Line';
-        this._callSubscriber(this._state);
-
+        }
     },
 
-    updateNewPostText(newText) {
 
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
-
-    },
 /////////////////////////////////////////////////////////////
-    addMessage ()  {
+    addMessage() {
 
         let newPostMassage = {
             // Name: 'Oleg',
@@ -99,18 +100,31 @@ let store ={
         this._callSubscriber(this._state);
     },
 
-    updateNewMessage (newMessage)  {
+    updateNewMessage(newMessage) {
         this._state.dialogsPage.updateNewMessage = newMessage;
         this._callSubscriber(this._state);
     },
-//////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 
-
-    subscribe (obserever)  {
-        this._callSubscriber=obserever
+    subscribe(obserever) {
+        this._callSubscriber = obserever
     },
 
+};
+
+export const addPostActionCreator = () => {
+    return {
+        type: ADD_POST
+    }
+};
+
+export const updateNewPostActionCreator = (text) => {
+    return {type: UPDATE_NEW_POST_TEXT,
+       newText: text,
+    }
 }
 
-export default store;
-window.store=store
+
+
+    export default store;
+    // window.store = store

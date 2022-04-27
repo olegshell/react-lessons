@@ -26,8 +26,8 @@ const App = (props) => {
                                                                    addMessage={props.addMessage}
                                                                    updateNewMessage={props.updateNewMessage}/>}/>
                         <Route path="/profile" element={<Profile profilePage={props.appState.profilePage}
-                                                                 addPost={props.addPost}
-                                                                 updateNewPostText={props.updateNewPostText}
+                                                                 dispatch={props.dispatch}
+                                                                 // updateNewPostText={props.updateNewPostText}
                                                                  />}/>
                         <Route path="/music" element={<Music musicData={props.appState.music}/>}/>
                         <Route path="/news" element={<News/>}/>

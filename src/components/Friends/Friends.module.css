@@ -1,0 +1,19 @@
+.musicItems {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.group {
+    color: purple;
+}
+
+.track {
+    color: white;
+
+}
+
+
+
+
+
+
