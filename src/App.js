@@ -22,15 +22,17 @@ const App = (props) => {
                     <Routes>
                         <Route path="/friends" element={<Friends myFriends={props.appState.myFriends}/>}/>
                         <Route path="/dialogs/*" element={<Dialogs dialogsData={props.appState.dialogsPage}
-                                                                   newPostMessage={props.appState.dialogsPage.newPostMessage}
-                                                                   addMessage={props.addMessage}
-                                                                   updateNewMessage={props.updateNewMessage}/>}/>
+                                                                   dispatch={props.dispatch}
+                                                                   store={props.store}
+                        />}/>
+
                         <Route path="/profile" element={<Profile profilePage={props.appState.profilePage}
                                                                  dispatch={props.dispatch}
                                                                  // updateNewPostText={props.updateNewPostText}
                                                                  />}/>
+
                         <Route path="/music" element={<Music musicData={props.appState.music}/>}/>
-                        <Route path="/news" element={<News/>}/>
+                        <Route path="/news" element={<News languagesFromIndex={props.languages}/>}/>
                         <Route path="/settings" element={<Settings/>}/>
                     </Routes>
                 </div>

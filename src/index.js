@@ -4,12 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from "./Redux/state";
-import {addPost} from "./Redux/state";
 import {BrowserRouter} from "react-router-dom";
-import {updateNewPostText} from "./Redux/state";
-import {addMessage} from "./Redux/state";
-import {updateNewMessage} from "./Redux/state";
-import {subscribe} from "./Redux/state";
+
 
 
 export let rerenderEntireThree = (state) => {
@@ -17,12 +13,15 @@ export let rerenderEntireThree = (state) => {
         <React.StrictMode>
             <BrowserRouter>
                 <App appState={store.getState()}
-
                      dispatch={store.dispatch.bind(store)}
-                     // updateNewPostText={store.updateNewPostText.bind(store)}
+                     store={store}
 
-                     addMessage={store.addMessage.bind(store)}
-                     updateNewMessage={store.updateNewMessage.bind(store)} />
+
+                     languages={store.languages.nameLanguages}
+                     // updateNewPostText={store.updateNewPostText.bind(store)}
+                     // addMessage={store.addMessage.bind(store)}
+                     // updateNewMessage={store.updateNewMessage.bind(store)}
+                />
             </BrowserRouter>
         </React.StrictMode>,
         document.getElementById('root')

@@ -13,7 +13,6 @@ const MyPosts = (props) => {
     let addPost =() => {
         props.dispatch(addPostActionCreator());
     };
-
     let  onPostChange = () => {
         let text = newPostElement.current.value;
         let action = updateNewPostActionCreator(text);

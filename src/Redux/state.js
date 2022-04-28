@@ -1,10 +1,27 @@
+import {act} from "@testing-library/react";
+
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+
+const UPDATE_NEW_MESSAGE_BODE = 'UPDATE-NEW-MESSAGE-BODE';
+const SEND_MESSAGE = 'SEND-MESSAGE';
+
 
 
 let store = {
 
+    languages: {
+        nameLanguages: [
+            {country: 'Russian', lang: 'ru' },
+            {country: 'England', lang: 'en' },
+            {country: 'Germany', lang: 'gr' },
+
+        ],
+    },
+
     _state: {
+
 
         profilePage: {
             posts: [
@@ -33,7 +50,7 @@ let store = {
                 {id: 5, name: "Sveta", age: 26},
             ],
 
-            newPostMessage: "please write here ",
+            newMessageBode: "please write here ",
         },
 
         music: [
@@ -77,37 +94,24 @@ let store = {
             this._state.profilePage.posts.push(newPost);
             this._state.profilePage.newPostText = 'Empty Line';
             this._callSubscriber(this._state);
-
         } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilePage.newPostText = action.newText;
             this._callSubscriber(this._state);
 
+        } else if (action.type === UPDATE_NEW_MESSAGE_BODE) {
+            this._state.dialogsPage.newMessageBode = action.body
+            this._callSubscriber(this._state);
+        } else if (action.type === SEND_MESSAGE) {
+            let body = this._state.dialogsPage.newMessageBode;
+            this._state.dialogsPage.messages.push({id: 6, message: body})
+            this._state.dialogsPage.newMessageBode = 'Чистое поле';
+            this._callSubscriber(this._state);
         }
     },
 
 
-/////////////////////////////////////////////////////////////
-    addMessage() {
-
-        let newPostMassage = {
-            // Name: 'Oleg',
-            // Age: 35,
-            message: this._state.dialogsPage.updateNewMessage,
-        }
-
-        this._state.dialogsPage.messages.push(newPostMassage);
-        this._state.dialogsPage.newPostMessage = 'Empty Line'
-        this._callSubscriber(this._state);
-    },
-
-    updateNewMessage(newMessage) {
-        this._state.dialogsPage.updateNewMessage = newMessage;
-        this._callSubscriber(this._state);
-    },
-/////////////////////////////////////////////////////////////
-
-    subscribe(obserever) {
-        this._callSubscriber = obserever
+    subscribe(observer) {
+        this._callSubscriber = observer
     },
 
 };
@@ -117,14 +121,26 @@ export const addPostActionCreator = () => {
         type: ADD_POST
     }
 };
-
 export const updateNewPostActionCreator = (text) => {
-    return {type: UPDATE_NEW_POST_TEXT,
-       newText: text,
+    return {
+        type: UPDATE_NEW_POST_TEXT,
+        newText: text,
     }
 }
 
 
+export const sendMessageCreator = () => {
+    return {type: SEND_MESSAGE}
+};
+export const updateNewMessageBody = (body) => {
+    return {
+        type: UPDATE_NEW_MESSAGE_BODE,
+        body: body,
+    }
+}
 
-    export default store;
-    // window.store = store
+console.log(store)
+
+
+export default store;
+// window.store = store

@@ -5,7 +5,7 @@ import MusicTrack from './Music Track/Music Track'
 
 const Music = (props) => {
 
-    const musicTrack =props.musicData.map(nameOftrack=><MusicTrack track={nameOftrack.track}/>)
+    const musicTrack =props.musicData.map(nameOfTrack => <MusicTrack track={nameOfTrack.track}/>)
     const musicGroup =props.musicData.map(function musicData (group) {
         return (
             <MusicGroup group={group.group} />
