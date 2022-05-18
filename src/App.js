@@ -9,10 +9,11 @@ import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
-import {updateNewMessage} from "./Redux/state";
+import {updateNewMessage} from "./Redux/store";
 
 
 const App = (props) => {
+
     return (
             <div className='app-wrapper'>
                 {/*<NameProps name={massive.name} age={massive.age}/>*/}
@@ -20,10 +21,12 @@ const App = (props) => {
                 <Navbar/>
                 <div className='app-wrapper-content'>
                     <Routes>
-                        <Route path="/friends" element={<Friends myFriends={props.appState.myFriends}/>}/>
+
+                        <Route path="/friends" element={<Friends appMyFriends={props.appState.myFriendsPage}/>}/>
+
                         <Route path="/dialogs/*" element={<Dialogs dialogsData={props.appState.dialogsPage}
                                                                    dispatch={props.dispatch}
-                                                                   store={props.store}
+                                                                   // store={props.store}
                         />}/>
 
                         <Route path="/profile" element={<Profile profilePage={props.appState.profilePage}
@@ -31,14 +34,12 @@ const App = (props) => {
                                                                  // updateNewPostText={props.updateNewPostText}
                                                                  />}/>
 
-                        <Route path="/music" element={<Music musicData={props.appState.music}/>}/>
+                        <Route path="/music" element={<Music appMusicData={props.appState.musicPage}/>}/>
                         <Route path="/news" element={<News languagesFromIndex={props.languages}/>}/>
                         <Route path="/settings" element={<Settings/>}/>
                     </Routes>
                 </div>
             </div>
-
-
     )
 
 

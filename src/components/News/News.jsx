@@ -6,15 +6,12 @@ import DialogItem from "../Dialogs/Dialogitem/Dialogitem";
 
 
 const News = (props) => {
-    let countryName = props.languagesFromIndex.map(p => p.country)
-    let countryLang = props.languagesFromIndex.map(p => p.lang)
+    // let countryName = props.languagesFromIndex.map(p => p.country)
+    // let countryLang = props.languagesFromIndex.map(p => p.lang)
 
     return (
         <div>
             News
-            {countryName}
-            {countryLang}
-
         </div>
     )
 }

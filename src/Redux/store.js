@@ -1,4 +1,8 @@
 import {act} from "@testing-library/react";
+import profileReducer from "./profile-reducer"
+import dialogsReducer from "./dialogs-reducer";
+import friendsReducer from "./friends-reducer";
+
 
 
 const ADD_POST = 'ADD-POST';
@@ -50,7 +54,7 @@ let store = {
                 {id: 5, name: "Sveta", age: 26},
             ],
 
-            newMessageBode: "please write here ",
+            newMessageBody: "please write here ",
         },
 
         music: [
@@ -85,28 +89,39 @@ let store = {
 
 
     dispatch(action) { //{type: 'ADD-POST'}
-        if (action.type === ADD_POST) {
-            let newPost = {
-                id: 3,
-                message: this._state.profilePage.newPostText,
-                likesCount: 2,
-            };
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = 'Empty Line';
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubscriber(this._state);
 
-        } else if (action.type === UPDATE_NEW_MESSAGE_BODE) {
-            this._state.dialogsPage.newMessageBode = action.body
-            this._callSubscriber(this._state);
-        } else if (action.type === SEND_MESSAGE) {
-            let body = this._state.dialogsPage.newMessageBode;
-            this._state.dialogsPage.messages.push({id: 6, message: body})
-            this._state.dialogsPage.newMessageBode = 'Чистое поле';
-            this._callSubscriber(this._state);
-        }
+        this._state.profilePage=profileReducer(this._state.profilePage, action)
+        this._state.dialogsPage=dialogsReducer(this._state.dialogsPage, action)
+        this._state.profilePage=friendsReducer(this._state.myFriends, action)
+
+        this._callSubscriber(this._state);
+
+
+
+        // this._state.profilePage=profileReducer(this._state.profilePage, action)
+
+        // if (action.type === ADD_POST) {
+        //     let newPost = {
+        //         id: 3,
+        //         message: this._state.profilePage.newPostText,
+        //         likesCount: 2,
+        //     };
+        //     this._state.profilePage.posts.push(newPost);
+        //     this._state.profilePage.newPostText = 'Empty Line';
+        //     this._callSubscriber(this._state);
+        // } else if (action.type === UPDATE_NEW_POST_TEXT) {
+        //     this._state.profilePage.newPostText = action.newText;
+        //     this._callSubscriber(this._state);
+        //
+        // } else if (action.type === UPDATE_NEW_MESSAGE_BODE) {
+        //     this._state.dialogsPage.newMessageBody = action.body
+        //     this._callSubscriber(this._state);
+        // } else if (action.type === SEND_MESSAGE) {
+        //     let body = this._state.dialogsPage.newMessageBody;
+        //     this._state.dialogsPage.messages.push({id: 6, message: body})
+        //     this._state.dialogsPage.newMessageBody = 'Чистое поле';
+        //     this._callSubscriber(this._state);
+        // }
     },
 
 
@@ -116,28 +131,28 @@ let store = {
 
 };
 
-export const addPostActionCreator = () => {
-    return {
-        type: ADD_POST
-    }
-};
-export const updateNewPostActionCreator = (text) => {
-    return {
-        type: UPDATE_NEW_POST_TEXT,
-        newText: text,
-    }
-}
+// export const addPostActionCreator = () => {
+//     return {
+//         type: ADD_POST
+//     }
+// };
+// export const updateNewPostActionCreator = (text) => {
+//     return {
+//         type: UPDATE_NEW_POST_TEXT,
+//         newText: text,
+//     }
+// }
 
 
-export const sendMessageCreator = () => {
-    return {type: SEND_MESSAGE}
-};
-export const updateNewMessageBody = (body) => {
-    return {
-        type: UPDATE_NEW_MESSAGE_BODE,
-        body: body,
-    }
-}
+// export const sendMessageCreator = () => {
+//     return {type: SEND_MESSAGE}
+// };
+// export const updateNewMessageBody = (body) => {
+//     return {
+//         type: UPDATE_NEW_MESSAGE_BODE,
+//         body: body,
+//     }
+// }
 
 console.log(store)
 

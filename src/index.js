@@ -3,21 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from "./Redux/state";
+import store from "./Redux/redux-store";
+// import store from "./Redux/store"
 import {BrowserRouter} from "react-router-dom";
 
 
 
-export let rerenderEntireThree = (state) => {
+let rerenderEntireThree = (state) => {
     ReactDOM.render(
         <React.StrictMode>
             <BrowserRouter>
                 <App appState={store.getState()}
                      dispatch={store.dispatch.bind(store)}
-                     store={store}
-
-
-                     languages={store.languages.nameLanguages}
+                     // store={store}
+                     // languages={store.languages.nameLanguages}
                      // updateNewPostText={store.updateNewPostText.bind(store)}
                      // addMessage={store.addMessage.bind(store)}
                      // updateNewMessage={store.updateNewMessage.bind(store)}
@@ -27,9 +26,12 @@ export let rerenderEntireThree = (state) => {
         document.getElementById('root')
     );
 }
-rerenderEntireThree(store.getState);
-store.subscribe(rerenderEntireThree)
+rerenderEntireThree(store.getState());
 
+store.subscribe( () => {
+    let state = store.getState();
+    rerenderEntireThree(state);
+});
 
 //
 //
