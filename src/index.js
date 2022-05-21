@@ -13,7 +13,7 @@ let rerenderEntireThree = (state) => {
     ReactDOM.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App appState={store.getState()}
+                <App store={store}
                      dispatch={store.dispatch.bind(store)}
                      // store={store}
                      // languages={store.languages.nameLanguages}

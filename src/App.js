@@ -10,36 +10,42 @@ import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
 import {updateNewMessage} from "./Redux/store";
+import FriendsContainer from "./components/Friends/FriendsContainer";
 
 
 const App = (props) => {
 
     return (
-            <div className='app-wrapper'>
-                {/*<NameProps name={massive.name} age={massive.age}/>*/}
-                <Header/>
-                <Navbar/>
-                <div className='app-wrapper-content'>
-                    <Routes>
+        <div className='app-wrapper'>
+            {/*<NameProps name={massive.name} age={massive.age}/>*/}
+            <Header/>
+            <Navbar/>
+            <div className='app-wrapper-content'>
+                <Routes>
 
-                        <Route path="/friends" element={<Friends appMyFriends={props.appState.myFriendsPage}/>}/>
+                    <Route path="/friends" element={<FriendsContainer appMyFriendsStore={props.store}/>}/>
 
-                        <Route path="/dialogs/*" element={<Dialogs dialogsData={props.appState.dialogsPage}
-                                                                   dispatch={props.dispatch}
-                                                                   // store={props.store}
-                        />}/>
+                    <Route path="/dialogs/*" element={<Dialogs dialogsData={props.store}
+                        //dispatch={props.dispatch}
+                        // store={props.store}
+                    />}
+                    />
 
-                        <Route path="/profile" element={<Profile profilePage={props.appState.profilePage}
-                                                                 dispatch={props.dispatch}
-                                                                 // updateNewPostText={props.updateNewPostText}
-                                                                 />}/>
+                    <Route path="/profile" element={<Profile stateProfilePage={props.store}
+                        // dispatch={props.dispatch}
+                        // updateNewPostText={props.updateNewPostText}
+                    />}/>
 
-                        <Route path="/music" element={<Music appMusicData={props.appState.musicPage}/>}/>
-                        <Route path="/news" element={<News languagesFromIndex={props.languages}/>}/>
-                        <Route path="/settings" element={<Settings/>}/>
-                    </Routes>
-                </div>
+                    <Route path="/music" element={<Music appMusicData={props.store}/>}/>
+
+                    <Route path="/news" element={<News
+                        //languagesFromIndex={props.languages}
+                    />}/>
+
+                    <Route path="/settings" element={<Settings/>}/>
+                </Routes>
             </div>
+        </div>
     )
 
 
