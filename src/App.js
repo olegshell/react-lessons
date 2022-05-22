@@ -11,6 +11,7 @@ import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
 import {updateNewMessage} from "./Redux/store";
 import FriendsContainer from "./components/Friends/FriendsContainer";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 
 const App = (props) => {
@@ -25,7 +26,7 @@ const App = (props) => {
 
                     <Route path="/friends" element={<FriendsContainer appMyFriendsStore={props.store}/>}/>
 
-                    <Route path="/dialogs/*" element={<Dialogs dialogsData={props.store}
+                    <Route path="/dialogs/*" element={<DialogsContainer dialogsStore={props.store}
                         //dispatch={props.dispatch}
                         // store={props.store}
                     />}

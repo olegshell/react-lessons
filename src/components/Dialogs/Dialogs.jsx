@@ -9,23 +9,19 @@ import {sendMessageCreator, updateNewMessageBody,} from "../../Redux/dialogs-red
 
 const Dialogs = (props) => {
 
-    // let state =props.store.getState().dialogsPage;
+    let state = props.dialogsPage
 
-
-    let dialogsElement = props.dialogsData.dialogs.map(d => <DialogItem name={d.name} id={d.id} age={d.age}/>);
-    let messageElement = props.dialogsData.messages.map(m => <Message message={m.message}/>);
-    let newMessageBode = props.dialogsData.newMessageBody;
-
+    let dialogsElement = state.dialogs.map(d => <DialogItem name={d.name} id={d.id} age={d.age}/>);
+    let messageElement = state.messages.map(m => <Message message={m.message}/>);
+    let newMessageBode = state.newMessageBody;
 
     let onSendMessageClick = () => {
-        props.dispatch(sendMessageCreator())
-
+        props.onSendMessageClick()
     }
 
     let onNewMessageChange = (e) => {
         let body = e.target.value;
-        props.dispatch(updateNewMessageBody(body))
-
+        props.updateNewMessageBody(body)
     }
 
 
