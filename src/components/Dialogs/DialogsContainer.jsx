@@ -4,24 +4,50 @@ import DialogItem from "./Dialogitem/Dialogitem";
 import Message from "./Massege/Message";
 import {sendMessageCreator, updateNewMessageBody,} from "../../Redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
+import StoreContext from "../../StoreContext";
 // import {rerenderEntireThree} from "../../render";
 // import state, {updateNewMessage} from "../../Redux/state";
 
+//Передача данных через пропсы
+// const DialogsContainer = (props) => {
+//
+//     let state = props.dialogsStore.getState().dialogsPage;
+//
+//     let sendMessageClick = () => {
+//         props.dialogsStore.dispatch(sendMessageCreator())
+//     }
+//
+//     let newMessageChange = (body) => {
+//         props.dialogsStore.dispatch(updateNewMessageBody(body))
+//     }
+//
+//
+//     return <Dialogs onSendMessageClick={sendMessageClick} updateNewMessageBody={newMessageChange} dialogsPage={state}/>
+// }
+//
+//
+// export default DialogsContainer;
 
-const DialogsContainer = (props) => {
+//Обращение на прямую к стор через <StoreContext.Consumer>
+const DialogsContainer = () => {
 
-    let state = props.dialogsStore.getState().dialogsPage;
+    return <StoreContext.Consumer>
+        {(store) => {
+            let state = store.getState().dialogsPage;
 
-    let sendMessageClick = () => {
-        props.dialogsStore.dispatch(sendMessageCreator())
-    }
+            let sendMessageClick = () => {
+                store.dispatch(sendMessageCreator())
+            }
 
-    let newMessageChange = (body) => {
-        props.dialogsStore.dispatch(updateNewMessageBody(body))
-    }
+            let newMessageChange = (body) => {
+                store.dispatch(updateNewMessageBody(body))
+            }
 
-
-    return <Dialogs onSendMessageClick={sendMessageClick} updateNewMessageBody={newMessageChange} dialogsPage={state}/>
+            return <Dialogs onSendMessageClick={sendMessageClick} updateNewMessageBody={newMessageChange}
+                            dialogsPage={state}/>
+        }
+        }
+    </StoreContext.Consumer>
 }
 
 

@@ -12,6 +12,7 @@ import Friends from "./components/Friends/Friends";
 import {updateNewMessage} from "./Redux/store";
 import FriendsContainer from "./components/Friends/FriendsContainer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import MusicContainer from "./components/Music/MusicContainer";
 
 
 const App = (props) => {
@@ -24,20 +25,28 @@ const App = (props) => {
             <div className='app-wrapper-content'>
                 <Routes>
 
-                    <Route path="/friends" element={<FriendsContainer appMyFriendsStore={props.store}/>}/>
+                    <Route path="/friends" element={<FriendsContainer
+                        // appMyFriendsStore={props.store}
+                    />}
+                    />
 
-                    <Route path="/dialogs/*" element={<DialogsContainer dialogsStore={props.store}
+                    <Route path="/dialogs/*" element={<DialogsContainer
+                        // dialogsStore={props.store}
                         //dispatch={props.dispatch}
                         // store={props.store}
                     />}
                     />
 
-                    <Route path="/profile" element={<Profile stateProfilePage={props.store}
+                    <Route path="/profile" element={<Profile
+                        // stateProfilePage={props.store}
                         // dispatch={props.dispatch}
                         // updateNewPostText={props.updateNewPostText}
                     />}/>
 
-                    <Route path="/music" element={<Music appMusicData={props.store}/>}/>
+                    <Route path="/music" element={<MusicContainer
+                        // appMusicStore={props.store}
+                    />}
+                    />
 
                     <Route path="/news" element={<News
                         //languagesFromIndex={props.languages}
