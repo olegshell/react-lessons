@@ -10,7 +10,7 @@ const Profile = (props) => {
     return (
         <div>
             <ProfileInfo/>
-            <MyPostsContainer store={props.stateProfilePage}
+            <MyPostsContainer //store={props.stateProfilePage}
                               //newPostText={props.profilePage.newPostText}
                               //addPost={props.addPost}
                               //dispatch={props.dispatch}

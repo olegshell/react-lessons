@@ -4,39 +4,31 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from "./Redux/redux-store";
-// import store from "./Redux/store"
 import {BrowserRouter} from "react-router-dom";
-import StoreContext, {Provider}  from "./StoreContext";
+import {Provider} from "react-redux";
+// import StoreContext, {Provider}  from "./StoreContext";
+// import store from "./Redux/store"
 //import Provider from "./StoreContext";
 
 
-let rerenderEntireThree = (state) => {
     ReactDOM.render(
-        <React.StrictMode>
-            <BrowserRouter>
-                <Provider store={store}>
-                    <App
-                        // store={store}
-                        // dispatch={store.dispatch.bind(store)}
-                        // store={store}
-                        // languages={store.languages.nameLanguages}
-                        // updateNewPostText={store.updateNewPostText.bind(store)}
-                        // addMessage={store.addMessage.bind(store)}
-                        // updateNewMessage={store.updateNewMessage.bind(store)}
-                    />
-                </Provider>
-
-            </BrowserRouter>
-        </React.StrictMode>,
-        document.getElementById('root')
+        <BrowserRouter>
+            <Provider store={store}>
+                <App
+                    // store={store}
+                    // dispatch={store.dispatch.bind(store)}
+                    // store={store}
+                    // languages={store.languages.nameLanguages}
+                    // updateNewPostText={store.updateNewPostText.bind(store)}
+                    // addMessage={store.addMessage.bind(store)}
+                    // updateNewMessage={store.updateNewMessage.bind(store)}
+                />
+            </Provider>
+        </BrowserRouter>, document.getElementById('root')
     );
-}
-rerenderEntireThree(store.getState());
 
-store.subscribe(() => {
-    let state = store.getState();
-    rerenderEntireThree(state);
-});
+
+
 
 //
 //

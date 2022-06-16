@@ -16,7 +16,6 @@ import MusicContainer from "./components/Music/MusicContainer";
 
 
 const App = (props) => {
-
     return (
         <div className='app-wrapper'>
             {/*<NameProps name={massive.name} age={massive.age}/>*/}
@@ -25,10 +24,10 @@ const App = (props) => {
             <div className='app-wrapper-content'>
                 <Routes>
 
-                    <Route path="/friends" element={<FriendsContainer
-                        // appMyFriendsStore={props.store}
-                    />}
-                    />
+                    {/*<Route path="/friends" element={<FriendsContainer*/}
+                    {/*    // appMyFriendsStore={props.store}*/}
+                    {/*/>}*/}
+                    {/*/>*/}
 
                     <Route path="/dialogs/*" element={<DialogsContainer
                         // dialogsStore={props.store}
@@ -43,10 +42,10 @@ const App = (props) => {
                         // updateNewPostText={props.updateNewPostText}
                     />}/>
 
-                    <Route path="/music" element={<MusicContainer
-                        // appMusicStore={props.store}
-                    />}
-                    />
+                    {/*<Route path="/music" element={<MusicContainer*/}
+                    {/*    // appMusicStore={props.store}*/}
+                    {/*/>}*/}
+                    {/*/>*/}
 
                     <Route path="/news" element={<News
                         //languagesFromIndex={props.languages}

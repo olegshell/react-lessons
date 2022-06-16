@@ -3,6 +3,7 @@ import s from './Dialogs.module.css'
 import DialogItem from "./Dialogitem/Dialogitem";
 import Message from "./Massege/Message";
 import {sendMessageCreator, updateNewMessageBody,} from "../../Redux/dialogs-reducer";
+import {connect} from "react-redux";
 // import {rerenderEntireThree} from "../../render";
 // import state, {updateNewMessage} from "../../Redux/state";
 
@@ -40,6 +41,7 @@ const Dialogs = (props) => {
 
     )
 }
+
 
 
 export default Dialogs;
