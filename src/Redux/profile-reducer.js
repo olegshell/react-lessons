@@ -2,18 +2,18 @@ const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
 let initialState = {
-        posts: [
-            {id: 0, message: "Hi, it's me! ", likesCount: 15},
-            {id: 1, message: "It's my first post", likesCount: 11},
-        ],
 
-        newPostText: 'BLA BLA BLA',
+    posts: [
+        {id: 0, message: "Hi, it's me! ", likesCount: 15},
+        {id: 1, message: "It's my first post", likesCount: 11},
+    ],
 
-    };
+    newPostText: 'please write here',
+
+};
 
 
-
-let profileReducer = (state=initialState, action) => {
+let profileReducer = (state = initialState, action) => {
 
     switch (action.type) {
 
@@ -23,18 +23,30 @@ let profileReducer = (state=initialState, action) => {
                 message: state.newPostText,
                 likesCount: 2,
             };
-            let stateCopy = {...state};
-            stateCopy.posts = [...state.posts];
-            stateCopy.posts.push(newPost);
-            stateCopy.newPostText = ' ';
+
+            //let stateCopy = {...state};
+
+            return {
+                ...state,
+                newPostText: 'Чистое поле',
+                posts: [...state.posts,newPost ]
+            }
+
+            //stateCopy.posts = [...state.posts];
+            //stateCopy.posts.push(newPost);
+            //stateCopy.newPostText = 'Чистое поле';
             // break
-            return stateCopy;
-        }
-        case UPDATE_NEW_POST_TEXT: {
-            let stateCopy = {...state};
-            stateCopy.newPostText = action.newText;
+            //return stateCopy;
+        };
+
+        case UPDATE_NEW_POST_TEXT:
+            return {
+                ...state,
+                newPostText: action.newText,
+            //let stateCopy = {...state};
+            //stateCopy.newPostText = action.newText;
             // break
-            return stateCopy;
+            //return stateCopy;
         }
         default:
             return state;

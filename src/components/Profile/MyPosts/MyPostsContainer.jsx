@@ -59,8 +59,9 @@ import {connect} from "react-redux";
 //     )
 
 let mapStateToProps = (state) => {
+
     return {
-        profilePage: state.profilePage.newPostText,
+        newPostText: state.profilePage.newPostText,
         posts: state.profilePage.posts,
     }
 }
@@ -73,10 +74,7 @@ let mapDispatchToProps = (dispatch) => {
         updateNewPostText: (text) => {
             let action = updateNewPostActionCreator(text);
             dispatch(action);
-
         }
-
-
     }
 }
 

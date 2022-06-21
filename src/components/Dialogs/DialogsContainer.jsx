@@ -52,6 +52,7 @@ import {connect} from "react-redux";
 // }
 
 let mapStateToProps = (state) => {
+
     return {
         dialogsPage: state.dialogsPage
     }
@@ -66,10 +67,7 @@ let mapDispatchToProps = (dispatch) => {
         onSendMessageClick: () => {
             dispatch(sendMessageCreator())
         },
-
     }
-
-
 }
 
 let DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
